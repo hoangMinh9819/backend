@@ -1,5 +1,6 @@
 package com.example.backend.services;
 
+import com.example.backend.dto.LoginRequestDTO;
 import com.example.backend.entities.Account;
 import com.example.backend.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,14 @@ public class AccountServiceImp implements AccountService{
 
     @Override
     public List<Account> getAllAccounts() {
+        return accountRepository.findAll();
+    }
+    @Override
+    public List<Account> getAllAdmins() {
+        return accountRepository.findAll();
+    }
+    @Override
+    public List<Account> getAllUsers() {
         return accountRepository.findAll();
     }
 
@@ -102,6 +111,16 @@ public class AccountServiceImp implements AccountService{
     @Override
     public List<Account> searchPhone(String keyword) {
         return accountRepository.searchPhone(keyword);
+    }
+
+    @Override
+    public Account getAdminLogin(LoginRequestDTO loginRequestDTO) {
+        return accountRepository.findAdminByUserNameAndPassword(loginRequestDTO.getUsername(),loginRequestDTO.getPassword());
+    }
+
+    @Override
+    public Account getUserLogin(LoginRequestDTO loginRequestDTO) {
+        return accountRepository.findUserByUserNameAndPassword(loginRequestDTO.getUsername(),loginRequestDTO.getPassword());
     }
 
 }

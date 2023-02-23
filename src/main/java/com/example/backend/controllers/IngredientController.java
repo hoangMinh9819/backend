@@ -1,8 +1,6 @@
 package com.example.backend.controllers;
 
-import com.example.backend.entities.Account;
 import com.example.backend.entities.Ingredient;
-import com.example.backend.services.AccountService;
 import com.example.backend.services.IngredientService;
 import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController

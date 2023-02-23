@@ -2,6 +2,9 @@ package com.example.backend.entities;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "recipes")
 public class Recipe {
@@ -85,5 +88,6 @@ public class Recipe {
     public void setTutorial(String tutorial) {
         this.tutorial = tutorial;
     }
+
 
 }

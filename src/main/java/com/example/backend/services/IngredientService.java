@@ -1,8 +1,6 @@
 package com.example.backend.services;
 
-import com.example.backend.entities.Account;
 import com.example.backend.entities.Ingredient;
-import org.springframework.data.jpa.repository.Query;
 
 import java.math.BigDecimal;
 import java.util.List;

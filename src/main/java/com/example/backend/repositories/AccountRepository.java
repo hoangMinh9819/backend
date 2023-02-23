@@ -12,6 +12,10 @@ import java.util.List;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
+    @Query("SELECT a FROM Account a WHERE a.role = 'Admin'")
+    public List<Account> getAllAdmins();
+    @Query("SELECT a FROM Account a WHERE a.role = 'User'")
+    public List<Account> searchAllUsers();
     @Query("SELECT a FROM Account a WHERE CONCAT(a.username, a.firstName, a.lastName, a.email, a.gender, a.role, a.status) LIKE %?1%")
     public List<Account> searchAll(String keyword);
     @Query("SELECT a FROM Account a WHERE a.username LIKE %?1%")
@@ -36,4 +40,9 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     public List<Account> searchStatus(String keyword);
     @Query("SELECT a FROM Account a WHERE a.phone LIKE %?1%")
     public List<Account> searchPhone(String keyword);
+
+    @Query("SELECT a FROM Account a WHERE a.username = ?1 and a.password = ?2 and a.role = 'Admin'")
+    Account findAdminByUserNameAndPassword(String username, String password);
+    @Query("SELECT a FROM Account a WHERE a.username = ?1 and a.password = ?2 and a.role = 'User'")
+    Account findUserByUserNameAndPassword(String username, String password);
 }

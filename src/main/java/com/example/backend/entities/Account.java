@@ -3,6 +3,7 @@ package com.example.backend.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "account")
@@ -44,6 +45,8 @@ public class Account {
 
     @Column(name = "role", length = 12)
     private String role;
+    @OneToMany(mappedBy = "account")
+    private List<AccountFavoriteRecipe> listAccountFavoriteRecipe;
 
     public Integer getId() {
         return id;

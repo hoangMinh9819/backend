@@ -1,9 +1,7 @@
 package com.example.backend.services;
 
-import com.example.backend.entities.Account;
 import com.example.backend.entities.Recipe;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface RecipeService {
@@ -11,6 +9,7 @@ public interface RecipeService {
     public Recipe createRecipe(Recipe recipe);
 
     public List<Recipe> getAllRecipes();
+    public Recipe getRecipeByName(String name);
 
     public Recipe getRecipeById(Integer id);
 
@@ -22,18 +21,14 @@ public interface RecipeService {
 
     public List<Recipe> searchName(String keyword);
 
-    public List<Account> searchMeal(String keyword);
+    public List<Recipe> searchMeal(String keyword);
 
-    public List<Account> searchDob(LocalDate fromDate, LocalDate toDate);
+    public List<Recipe> searchCalories(Float fromCalories, Float toCalories);
+    public List<Recipe> searchFromCalories(Float fromCalories);
 
-    public List<Account> searchToDob(LocalDate toDate);
+    public List<Recipe> searchToCalories(Float toCalories);
 
-    public List<Account> searchFromDob(LocalDate fromDate);
+    public List<Recipe> searchDescription(String keyword);
 
-    public List<Account> searchGender(String keyword);
-
-    public List<Account> searchRole(String keyword);
-
-    public List<Account> searchStatus(String keyword);
-    public List<Account> searchPhone(String keyword);
+    public List<Recipe> searchTutorial(String keyword);
 }

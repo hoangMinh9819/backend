@@ -1,5 +1,6 @@
 package com.example.backend.controllers;
 
+import com.example.backend.dto.LoginRequestDTO;
 import com.example.backend.entities.Account;
 import com.example.backend.repositories.AccountRepository;
 import com.example.backend.services.AccountService;
@@ -23,6 +24,14 @@ public class AccountController {
 
     @GetMapping("/")
     public ResponseEntity<List<Account>> getAllAccounts() {
+        return new ResponseEntity<List<Account>>(accountService.getAllAccounts(), HttpStatus.OK);
+    }
+    @GetMapping("/allAdmins")
+    public ResponseEntity<List<Account>> getAllAdmins() {
+        return new ResponseEntity<List<Account>>(accountService.getAllAccounts(), HttpStatus.OK);
+    }
+    @GetMapping("/allUsers")
+    public ResponseEntity<List<Account>> getAllUsers() {
         return new ResponseEntity<List<Account>>(accountService.getAllAccounts(), HttpStatus.OK);
     }
 

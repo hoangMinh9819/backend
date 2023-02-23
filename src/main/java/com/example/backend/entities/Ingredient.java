@@ -3,6 +3,8 @@ package com.example.backend.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "ingredients")
@@ -75,5 +77,6 @@ public class Ingredient {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
 }

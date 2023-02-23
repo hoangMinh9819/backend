@@ -3,10 +3,12 @@ package com.example.backend.repositories;
 import com.example.backend.entities.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Repository
 public interface IngredientRepository extends JpaRepository<Ingredient, Integer> {
     @Query("SELECT i FROM  Ingredient i WHERE i.name LIKE %?1%")
     public List<Ingredient> searchName(String keyword);

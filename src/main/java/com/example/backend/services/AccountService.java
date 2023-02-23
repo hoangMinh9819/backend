@@ -1,7 +1,12 @@
 package com.example.backend.services;
 
+import com.example.backend.dto.LoginRequestDTO;
 import com.example.backend.entities.Account;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -10,6 +15,8 @@ public interface AccountService {
     public Account createAccount(Account account);
 
     public List<Account> getAllAccounts();
+    public List<Account> getAllAdmins();
+    public List<Account> getAllUsers();
 
     public Account getAccountById(Integer id);
 
@@ -39,5 +46,8 @@ public interface AccountService {
 
     public List<Account> searchStatus(String keyword);
     public List<Account> searchPhone(String keyword);
+
+    public Account getAdminLogin(LoginRequestDTO loginRequestDTO);
+    public Account getUserLogin(LoginRequestDTO loginRequestDTO);
 }
 

@@ -1,6 +1,5 @@
 package com.example.backend.services;
 
-import com.example.backend.entities.Account;
 import com.example.backend.entities.Ingredient;
 import com.example.backend.repositories.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
